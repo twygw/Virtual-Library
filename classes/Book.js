@@ -1,8 +1,8 @@
 // import the Media class:
-const media = require("./Media");
+const Media = require("./Media.js");
 // create your Book class:
 class Book extends Media {
-    constructor(author, numPages, rating) {
+    constructor(title, year, genre, author, numPages, rating) {
         super(title, year, genre);
         this.author = author;
         this.numPages = numPages;
@@ -10,12 +10,17 @@ class Book extends Media {
     }
 
     summary() {
-        return `Title ${this.title}, Author: ${this.author}, Year: ${this.year}, Page Count:: ${this.numPages}, Genre: ${this.genre}, Rating: ${this.rating}`;
+        return `Title: ${this.title}, Author: ${this.author}, Year: ${this.year}, Page Count: ${this.numPages}, Genre: ${this.genre}, Rating: ${this.rating}`;
     }
 
     static highestRating(Book) {
-        return Math.max(Book.rating);
+        return Book.reduce((highestRatedBook, currentBook) => {
+            return currentBook.rating > highestRatedBook.rating
+                ? currentBook
+                : highestRatedBook;
+        });
     }
 }
+
 // don't change below
 module.exports = Book;
