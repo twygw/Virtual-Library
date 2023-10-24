@@ -1,5 +1,5 @@
 // import the Media class:
-const Media = require("./classes/Media");
+const Media = require("./Media");
 // create your Music class:
 class Music extends Media {
   constructor(title, genre, year, artist, length) {
@@ -8,7 +8,7 @@ class Music extends Media {
     this.length = length;
   }
   summary() {
-    return `Title: ${this.title}, Artist: ${this.artist}, Year: ${this.year}, Genre: ${this.genre}, Length: ${this.length}`;
+    return `Title: ${this.title}, Artist: ${this.artist}, Year: ${this.year}, Genre: ${this.genre}, Length: ${this.length} seconds`;
   }
   static shortestAlbum(albums) {
     if (!Array.isArray(albums) || albums.length === 0) {
